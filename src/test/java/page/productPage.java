@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import org.openqa.selenium.support.PageFactory;
 import testRunner.Runner;
 
+import java.util.concurrent.TimeUnit;
+
 public class productPage extends Runner {
 
     public productPage(){
@@ -15,15 +17,17 @@ public class productPage extends Runner {
     }
 
     public void clickAddToCard() {
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         findElements("addToCart","id");
     }
 
     public void clickCloseProductAdvice() {
-        findElements("/html/body/div[12]/div/div/div/div[1]/div[2]","xPath");
+        findElements("/html/body/div[11]/div/div/div/div[1]/div[2]","xPath");
     }
 
     public void clickAddBasketFromOtherSaler() {
-        findElements("body > div.wrapper > main > div.product-detail-module > section.detail-main > div.container.contain-lg-4.contain-md-4.contain-sm-1.fluid > div > div.productDetailRight.col.lg-2.md-2.sm-1.grid-demo-fluid > div.merchantLists.col.lg-5.sm-1.no-padding > div.merchantList > div > div.marketplace-list > table > tbody > tr:nth-child(1) > td.form-area > div > form > button","cssSelector");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        findElements("/html/body/div[4]/main/div[3]/section[1]/div[5]/div/div[4]/div[2]/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/div/form/button","xPath");
     }
 
     public void clickIgnorePackage() {

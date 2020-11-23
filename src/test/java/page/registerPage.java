@@ -12,11 +12,11 @@ public class registerPage extends Runner {
     }
 
     public void setUserEmail() {
-        findElements("txtUserName","id","mecitkurun@hotmail.com");
+        findElements("txtUserName","id","@hotmail.com");
     }
 
     public void setUserPassword() {
-        findElements("txtPassword","id","2318921");
+        findElements("txtPassword","id","**");
     }
 
     public void clickUserLogin() {
