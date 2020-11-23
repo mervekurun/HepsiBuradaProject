@@ -19,21 +19,27 @@ strict = true)
 
 public class Runner{
 
-    public WebDriver driver;
-    ChromeOptions options  = new ChromeOptions();
+    public static WebDriver driver;
+    public static ChromeOptions options  = new ChromeOptions();
     WebDriverWait wait;
-    public Runner()
+
+
+   public static void getDriver()
     {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\merve\\Desktop\\Driver\\chromedriver.exe");
         options.setExperimentalOption("excludeSwitches", "disable-popup-blocking");
         options.addArguments("--disable-popup-blocking");
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);;
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
     }
 
-    public void geturl(){
+    public void getUrl(){
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\merve\\Desktop\\Driver\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://www.hepsiburada.com");
     }
 
@@ -99,9 +105,10 @@ public class Runner{
 
     }
 
-    public void Wait(int seconds){
+       public void WaitRunner(int seconds){
         driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
     }
+
         public void PageScrolldown() {
             JavascriptExecutor jse = (JavascriptExecutor) driver;
             jse.executeScript("window.scrollBy(0,300)", "");
